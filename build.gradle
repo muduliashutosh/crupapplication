@@ -1,0 +1,43 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.11'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.rabbitmq:amqp-client:5.14.2'
+        implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    implementation 'org.springframework.boot:spring-boot-starter-activemq:3.3.5'
+    implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+    // https://mvnrepository.com/artifact/javax.servlet/jstl
+implementation 'javax.servlet:jstl:1.2'
+testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+
+    
+	// https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
+    implementation 'mysql:mysql-connector-java:8.0.30'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.7.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
