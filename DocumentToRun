@@ -1,0 +1,50 @@
+To run your Spring Boot application with JSP pages and JPA/Hibernate, follow these steps:
+
+#Prerequisites:
+1.Ensure you have Spring Tool Suite (STS) or any Java IDE (sts tool) installed.
+2.Have MySQL or the chosen SQL database running with the appropriate database configured.
+3.Apache ActiveMQ running for event-driven messaging.
+4.Gradle setup based project build tool.
+
+#Steps to Run the Application in Spring Tool Suite (STS):
+1.Open STS and Import Project:
+
+a.Open STS and go to File > Import.
+b.Choose Existing Gradle Project or Existing Maven Project based on your project build tool.
+c.Select the project folder and click Finish.
+
+#Configure Application Properties:
+
+Ensure the application.properties or application.yml file is configured with the correct database and ActiveMQ properties:
+properties
+Copy code
+spring.datasource.url=jdbc:mysql://localhost:3306/your_database
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.jpa.hibernate.ddl-auto=update
+
+# ActiveMQ settings
+spring.activemq.broker-url=tcp://localhost:61616
+spring.activemq.user=guest
+spring.activemq.password=guest
+
+#Build the Project:
+
+If using Gradle, right-click on the project and select Gradle > Refresh Gradle Project.
+#Run the Application:
+
+a.Right-click on the main application class (annotated with @SpringBootApplication) and select Run As > Spring Boot App.
+b.Alternatively, you can run the application via the terminal:
+bash command:-
+./gradlew bootRun -> For Gradle
+
+#Access the Application:
+
+Open a web browser and navigate to http://localhost:9090 to access the JSP pages.
+
+#Running Tests:
+Run Unit Tests:
+Right-click on the test folder or specific test classes in STS and choose Run As > JUnit Test.
+Alternatively, run tests from the terminal:
+bash command :-
+./gradlew test  # For Gradle
